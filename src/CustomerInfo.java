@@ -38,10 +38,12 @@ public class CustomerInfo extends JPanel
 
                 System.out.println("Customer Info Saved!");
 
-                frame.getContentPane().removeAll();
-                frame.add(new LineItems(frame));
-                frame.revalidate();
-                frame.repaint();
+                SwingUtilities.getWindowAncestor(confirmBtn).dispose();
+
+
+                if (frame instanceof InvoiceFrame) {
+                    ((InvoiceFrame) frame).getLineItems();
+                }
             }
         });
         add(confirmBtn);
@@ -51,5 +53,25 @@ public class CustomerInfo extends JPanel
             System.exit(0);
         });
         add(quitBtn);
+    }
+
+    public String getCustomerName() {
+        return customerName.getText();
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress.getText();
+    }
+
+    public String getCustomerTown() {
+        return customerTown.getText();
+    }
+
+    public String getCustomerState() {
+        return customerState.getText();
+    }
+
+    public String getCustomerZip() {
+        return customerZip.getText();
     }
 }
