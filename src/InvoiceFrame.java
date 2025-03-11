@@ -11,7 +11,7 @@ public class InvoiceFrame extends JFrame
     JTextField invoiceTotal;
 
 
-
+//here it is Initializing the main frame and calling all of the methods for interior panels.
     public InvoiceFrame()
     {
 
@@ -41,6 +41,8 @@ public class InvoiceFrame extends JFrame
         invoiceTotal.setText("Total: $0.00");
     }
 
+    //creation method for the title panel, all it does is display the title Invoice at the top for visual neatness
+
     public void createTitlePnl(){
         titlePnl = new JPanel();
         titlePnl.setLayout(new BorderLayout());
@@ -51,6 +53,8 @@ public class InvoiceFrame extends JFrame
         mainPnl.add(titlePnl, BorderLayout.NORTH);
 
     }
+
+    //creation method for the customer panel, all this does is set the properties for the customerArea JTextArea and layout
 
     public void createCustomerPnl(){
         customerPnl = new JPanel();
@@ -65,6 +69,9 @@ public class InvoiceFrame extends JFrame
         customerPnl.add(scrollPane, BorderLayout.CENTER);
         mainPnl.add(customerPnl, BorderLayout.CENTER);
     }
+
+    //creation method for the line item panel, all this does is set the properties for the line item text area and the'
+    // invoice total text field
 
     public void createLineItemPnl(){
         lineItemPnl = new JPanel();
@@ -81,6 +88,8 @@ public class InvoiceFrame extends JFrame
         lineItemPnl.add(invoiceTotal, BorderLayout.SOUTH);
         mainPnl.add(lineItemPnl, BorderLayout.SOUTH);
     }
+
+    //
 
     public void getCustomerInfo(){
         JDialog customerDialog = new JDialog(this, "Customer Info", true);

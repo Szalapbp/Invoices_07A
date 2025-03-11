@@ -7,6 +7,8 @@ public class CustomerInfo extends JPanel
 {
     private JTextField customerName, customerAddress, customerTown, customerState, customerZip;
 
+    //Here I am laying out all of the JLabels for the customer information
+
     public CustomerInfo(JFrame frame)
     {
         setLayout(new GridLayout(6, 2, 5, 5));
@@ -31,6 +33,9 @@ public class CustomerInfo extends JPanel
         customerZip = new JTextField(15);
         add(customerZip);
 
+        //Here I created a confirm button for the CustomerInfo Popup window that will send the user
+        //to the next screen and allow the JTextArea to print the informaiton
+
         JButton confirmBtn = new JButton("Confirm");
         confirmBtn.addActionListener(new ActionListener() {
             @Override
@@ -48,12 +53,17 @@ public class CustomerInfo extends JPanel
         });
         add(confirmBtn);
 
+        //Quit Button that quits out of the entire program
+
         JButton quitBtn = new JButton("Quit");
         quitBtn.addActionListener(e -> {
             System.exit(0);
         });
         add(quitBtn);
     }
+
+    //Getters to allow the InvoiceFrame.java to pull the customer information to the frame for later organization
+    //and display
 
     public String getCustomerName() {
         return customerName.getText();
