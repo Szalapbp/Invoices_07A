@@ -89,7 +89,8 @@ public class InvoiceFrame extends JFrame
         mainPnl.add(lineItemPnl, BorderLayout.SOUTH);
     }
 
-    //
+    // this method grabs the CustomerInfo from the CustomerInfo popup that the user entered, Then it calls the
+    // getLineItems method to display the LineItems popup
 
     public void getCustomerInfo(){
         JDialog customerDialog = new JDialog(this, "Customer Info", true);
@@ -105,6 +106,8 @@ public class InvoiceFrame extends JFrame
         getLineItems();
     }
 
+    //This method formats the CustomerInfo grabbed from the last method and displays it in the InvoiceFrame
+
     private String getCustomerDetailsFromPanel(CustomerInfo customerPanel){
         return customerPanel.getCustomerName() + "\n" +
                 customerPanel.getCustomerAddress() + "\n" +
@@ -112,6 +115,12 @@ public class InvoiceFrame extends JFrame
                 ", " + customerPanel.getCustomerState() +
                 ", " + customerPanel.getCustomerZip();
     }
+
+    //This method grabs the LineItems from the LineItems popup that the user entered in. It then formats the line items
+    // one per line in the InvoiceFrame text area. It also creates text for the invoice total displayed at the bottom
+    // of the screen. Since this information will always be present, it did not have to be declared in any other panels.
+    //There is also some revalidate and repaint functions here that I was using while trying to troubleshoot issues,
+    // since it's working, I left them there.
 
     public void getLineItems(){
         JDialog lineItemsDialog = new JDialog(this, "Line Items", true);
